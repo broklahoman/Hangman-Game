@@ -53,6 +53,7 @@ $(document).ready(function() {
        event.key;
        
     });
+ 
 function startGame(){
   
     for (var i = 0; i < word.length; i++) {
@@ -65,14 +66,12 @@ function startGame(){
     console.log(numberWrongGuesses);
   };
  }
- $(".wrong-guesses").html(numberWrongGuesses)
+ $(".wrong-guesses").text(numberWrongGuesses)
   wrongGuess();
   startGame();
   wrongGuess();
 
-  // $(document.onkeypress(function(e) {
-    // console.log(event.key);
-    // });
+  
 
 });
 
