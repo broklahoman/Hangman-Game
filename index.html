@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+	<link rel="stylesheet" src= https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css>
+
+	 <script src="https://code.jquery.com/jquery.js"></script>
+
+
+  </head>
+<body>
+<div class = "word-display"></div>
+<div class= "start-screen">
+<p>press any key to start</p>
+</div>
+<div class= "letters-guessed">letters guessed:" "</div>
+<div class= "wrong-guesses" value = "numberWrongGuesses"> total wrong guesses left</div>
+<div class= "win-total">Wins:</div>
+<div class= "loss-total">Losses:</div>
+
+
+// <script> //Step 1) Describe the game here in plain english.
+// *  Checkout this link as an example: https://gist.github.com/kmandreza/4516100
+// **1. When page is open prompt user to press any key to start game
+// get a word (should be stored as word:total letters) at random from an array
+// 2. display letter length to user as " _ _ _" for a 3 letter word (dog). 
+// prompt user to guess letter
+// if correct letter is guessed change "_" to letter key pressed
+// if "_" == 0 then alert win
+
+// if wrong letter is guessed add to wrong letter guessed  
+// If wrong letter guessed # ==4 then fill in remaining letters and alert a losss
+// when Alert win or Alert loss prompt to play again
+
+
+
+
+$(document).ready(function() {
+
+  var words = ["dog", "cat", "frog", "mouse"] 
+  
+  var word = words[Math.floor(Math.random() * words.length)];
+  var wins= 0; //use wins++
+  var losses= 0; //use losses++
+  var numberWrongGuesses = 0; 
+  var lettersGuessed=[];
+  var answerArray= [];
+  var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+
+ var guess = $(document).keypress(function(e){
+       $(".letters-guessed").html(event.key);
+       console.log(event.key);
+       event.key;
+       
+    });
+function startGame(){
+  
+    for (var i = 0; i < word.length; i++) {
+        $(".word-display").html(answerArray += "_ ")};
+}
+ function wrongGuess(){
+  var i;
+  if (guess != word[i]){
+    numberWrongGuesses++;
+    console.log(numberWrongGuesses);
+  };
+ }
+ $(".wrong-guesses").html(numberWrongGuesses)
+  wrongGuess();
+  startGame();
+  wrongGuess();
+
+  // $(document.onkeypress(function(e) {
+    // console.log(event.key);
+    // });
+
+});
+
+  
+
+
+
+
+    
+  //    document.onkeypress = function
+   
+
+  // document.onkeypress = function(letterGuess) {
+    
+  // }
+
+
+</script>
+<div>
+  
+</div>
+<!-- <input id="start-screen" type="key" name="gamestart"> -->
+</body>
+</html>
